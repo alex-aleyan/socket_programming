@@ -1,0 +1,5 @@
+Address already in use: bailing at bind() on line __LINE__
+srvr_addr = 00000031 
+srvr_addr = 192.168.40.185 
+Compare the strings: 7 
+adr_srvr.sin_addr.s_addr = b928a8c0

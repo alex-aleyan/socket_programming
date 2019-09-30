@@ -1,0 +1,66 @@
+1. Determine for each function the .h and .c file locations.
+2.
+
+int pipe(int fd[2]); #<unistd.h>
+int socketpair(int domain, int type, int protocol, int* fd[2]); #<socket.h> <types.h>
+ssize_t write(int fd, void *buf, size_t count);
+ssize_t read(int fd, void *buf, size_t count);
+char strerror(int errnum); #errno.h
+system();
+int shutdown(int s, int how);
+int fd_dup dup(int fd);
+
+
+
+struct sockaddr {         /* new type named sockaddr (16 byte header) which is the Link Layer?? */
+		sa_family_t sa_family;  /* Address Family (2 bytes) where sa_family_t is unsigned short integer*/
+		char sa_data[14];       /* Address data (14 bytes) */
+};
+
+
+#include <sys/un.h>*/
+struct sockaddr_un {
+		sa_family_t sun_family;     /* Address Family (2 bytes) where sa_family_t is 16-bit unsigned short integer*/
+		char        sun_path[108];  /* Pathname data (108 bytes)*/
+};
+
+
+#include <netinet/in.h>
+struct sockaddr_in #16-bytes
+{
+		sa_family_t sin_family;    /* Address Family (Big Endian Order): byte1 and byte0*/
+		uint16_t sin_port;         /* Port Number (Big Endian Order): byte3 and byte02/
+		struct in_addr sin_addr;   /* Internet address (Big Endian Order): byte7 through byte04 */
+		unsigned char sin_zero[8]; /* Pad bytes */
+};
+struct in_addr 
+{
+		uint32_t s_addr; /* Internet address */
+};
+
+
+#include <netinet/in.h>
+unsigned long htonl(unsigned long hostlong);    // host to network long
+unsigned short htons(unsigned short hostshort); // host to network short
+unsigned long ntohl(unsigned long netlong);     // network to host long
+unsigned short ntohs(unsigned short netshort);  // network to host short
+
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+unsigned long inet_addr(const char *string);				// converts stringed IP to a usable socket address (Big Endian order)
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+int inet_aton(const char *string, struct in_addr *addr);				// converts stringed IP to a usable socket address (Big Endian order)
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+int *inet_ntoa(struct in_addr *addr);
+
+
+
+

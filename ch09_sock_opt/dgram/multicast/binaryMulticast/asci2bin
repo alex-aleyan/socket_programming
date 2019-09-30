@@ -1,0 +1,219 @@
+#!/bin/bash
+
+text="$1"
+
+#for i in $(seq 0 $(expr length "${text}"))
+for ((i=0; i < ${#text};))
+{
+  j=$(echo -n "${text:$i:1}")
+  k=$(echo -n "${text:$((i+1)):1}")
+  #printf "%c%c\n" $j $k
+  i=$((i+2))
+
+  case $j in
+    [0-9])
+	  case $k in
+	  [0-9])
+		printf "%x%x\n" $j $k | xxd -r -p
+		;;
+	  [A,a])
+		printf "%x%x\n" $j 10 | xxd -r -p
+		;;
+	  [B,b])
+	    printf "%x%x\n" $j 11 | xxd -r -p
+	    ;;
+	  [C,c])
+	    printf "%x%x\n" $j 12 | xxd -r -p
+	    ;;
+	  [D,d])
+	    printf "%x%x\n" $j 13 | xxd -r -p
+	    ;;
+	  [E,e])
+	    printf "%x%x\n" $j 14 | xxd -r -p
+	    ;;
+	  [F,f])
+	    printf "%x%x\n" $j 15 | xxd -r -p
+	    ;;
+	  *)
+		>&2 echo -e "STRING CONTAINS NON HEX CHARACTERS"
+		exit -1
+	  esac
+	  ;;
+    [A,a])
+	  case $k in
+	  [0-9])
+		printf "%x%x\n" 10 $k | xxd -r -p
+		;;
+	  [A,a])
+		printf "%x%x\n" 10 10 | xxd -r -p
+		;;
+	  [B,b])
+	    printf "%x%x\n" 10 11 | xxd -r -p
+	    ;;
+	  [C,c])
+	    printf "%x%x\n" 10 12 | xxd -r -p
+	    ;;
+	  [D,d])
+	    printf "%x%x\n" 10 13 | xxd -r -p
+	    ;;
+	  [E,e])
+	    printf "%x%x\n" 10 14 | xxd -r -p
+	    ;;
+	  [F,f])
+	    printf "%x%x\n" 10 15 | xxd -r -p
+	    ;;
+	  *)
+		>&2 echo -e "STRING CONTAINS NON HEX CHARACTERS"
+		exit -1
+	  esac
+	  ;;
+
+    [B,b])
+	  case $k in
+	  [0-9])
+		printf "%x%x\n" 11 $k | xxd -r -p
+		;;
+	  [A,a])
+		printf "%x%x\n" 11 10 | xxd -r -p
+		;;
+	  [B,b])
+	    printf "%x%x\n" 11 11 | xxd -r -p
+	    ;;
+	  [C,c])
+	    printf "%x%x\n" 11 12 | xxd -r -p
+	    ;;
+	  [D,d])
+	    printf "%x%x\n" 11 13 | xxd -r -p
+	    ;;
+	  [E,e])
+	    printf "%x%x\n" 11 14 | xxd -r -p
+	    ;;
+	  [F,f])
+	    printf "%x%x\n" 11 15 | xxd -r -p
+	    ;;
+	  *)
+		>&2 echo -e "STRING CONTAINS NON HEX CHARACTERS"
+		exit -1
+	  esac
+	  ;;
+	
+    [C,c])
+	  case $k in
+	  [0-9])
+		printf "%x%x\n" 12 $k | xxd -r -p
+		;;
+	  [A,a])
+		printf "%x%x\n" 12 10 | xxd -r -p
+		;;
+	  [B,b])
+	    printf "%x%x\n" 12 11 | xxd -r -p
+	    ;;
+	  [C,c])
+	    printf "%x%x\n" 12 12 | xxd -r -p
+	    ;;
+	  [D,d])
+	    printf "%x%x\n" 12 13 | xxd -r -p
+	    ;;
+	  [E,e])
+	    printf "%x%x\n" 12 14 | xxd -r -p
+	    ;;
+	  [F,f])
+	    printf "%x%x\n" 12 15 | xxd -r -p
+	    ;;
+	  *)
+		>&2 echo -e "STRING CONTAINS NON HEX CHARACTERS"
+		exit -1
+	  esac
+	  ;;
+
+    [D,d])
+	  case $k in
+	  [0-9])
+		printf "%x%x\n" 13 $k | xxd -r -p
+		;;
+	  [A,a])
+		printf "%x%x\n" 13 10 | xxd -r -p
+		;;
+	  [B,b])
+	    printf "%x%x\n" 13 11 | xxd -r -p
+	    ;;
+	  [C,c])
+	    printf "%x%x\n" 13 12 | xxd -r -p
+	    ;;
+	  [D,d])
+	    printf "%x%x\n" 13 13 | xxd -r -p
+	    ;;
+	  [E,e])
+	    printf "%x%x\n" 13 14 | xxd -r -p
+	    ;;
+	  [F,f])
+	    printf "%x%x\n" 13 15 | xxd -r -p
+	    ;;
+	  *)
+		>&2 echo -e "STRING CONTAINS NON HEX CHARACTERS"
+		exit -1
+	  esac
+	  ;;
+    [E,e])
+	  case $k in
+	  [0-9])
+		printf "%x%x\n" 14 $k | xxd -r -p
+		;;
+	  [A,a])
+		printf "%x%x\n" 14 10 | xxd -r -p
+		;;
+	  [B,b])
+	    printf "%x%x\n" 14 11 | xxd -r -p
+	    ;;
+	  [C,c])
+	    printf "%x%x\n" 14 12 | xxd -r -p
+	    ;;
+	  [D,d])
+	    printf "%x%x\n" 14 13 | xxd -r -p
+	    ;;
+	  [E,e])
+	    printf "%x%x\n" 14 14 | xxd -r -p
+	    ;;
+	  [F,f])
+	    printf "%x%x\n" 14 15 | xxd -r -p
+	    ;;
+	  *)
+		>&2 echo -e "STRING CONTAINS NON HEX CHARACTERS"
+		exit -1
+	  esac
+	  ;;
+    [F,f])
+	  case $k in
+	  [0-9])
+		printf "%x%x\n" 15 $k | xxd -r -p
+		;;
+	  [A,a])
+		printf "%x%x\n" 15 10 | xxd -r -p
+		;;
+	  [B,b])
+	    printf "%x%x\n" 15 11 | xxd -r -p
+	    ;;
+	  [C,c])
+	    printf "%x%x\n" 15 12 | xxd -r -p
+	    ;;
+	  [D,d])
+	    printf "%x%x\n" 15 13 | xxd -r -p
+	    ;;
+	  [E,e])
+	    printf "%x%x\n" 15 14 | xxd -r -p
+	    ;;
+	  [F,f])
+	    printf "%x%x\n" 15 15 | xxd -r -p
+	    ;;
+	  *)
+		>&2 echo -e "STRING CONTAINS NON HEX CHARACTERS"
+		exit -1
+	  esac
+	  ;;
+    *)
+	  >&2 echo -e "STRING CONTAINS NON HEX CHARACTERS"
+	  exit -1
+  esac
+
+}
+
